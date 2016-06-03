@@ -57,7 +57,15 @@ Bringing machine 'default' up with 'virtualbox' provider...
 
 Once this has completed, you are ready to start your development tasks.
 
-## When You're Done
+## When your tasks are completed
+Once you are done with your tasks, run the following command:
+```
+vagrant suspend
+```
+This will save the state of the site. You can then bring your computer to the follow-up interview to demonstrate the work.
+
+## Removing this from your system
+*DO NOT DO THIS UNTIL WE HAVE REVIEWED YOUR WORK!*
 Once you have completed your development tasks and submitted them with a Pull Request, you can destroy the environment:
 
 ```
