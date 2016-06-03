@@ -56,3 +56,18 @@ Bringing machine 'default' up with 'virtualbox' provider...
 ```
 
 Once this has completed, you are ready to start your development tasks.
+
+## When You're Done
+Once you have completed your development tasks and submitted them with a Pull Request, you can destroy the environment:
+
+```
+vagrant destroy
+```
+
+You can then remove the environment from your system:
+
+```
+vagrant box remove drud/applicantbox
+```
+
+Once this is completed, you can remove this repository from your computer.
