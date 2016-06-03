@@ -9,5 +9,5 @@ Vagrant.configure("2") do |c|
   c.vm.synced_folder ".", "/var/www", :mount_options => ["dmode=777", "fmode=666"]
   c.vm.provider :virtualbox do |p|
   end
-  c.vm.provision "shell", path: "init"
+  c.vm.provision "shell", path: "init", keep_color: false
 end

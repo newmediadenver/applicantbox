@@ -1,14 +1,16 @@
-#!/bin/bash -xe
+#!/bin/bash
+echo "Starting up the development environment..."
 ssh-keyscan -H github.com >> /etc/ssh/ssh_known_hosts
 mkdir -p /var/www/applicantdemowp
 mkdir -p /var/archives/demo
-git clone https://github.com/newmediadenver/applicantdemowp.git /var/www/applicantdemowp/current
-curl -o /var/archives/archive.tar.gz https://s3-us-west-2.amazonaws.com/nmdarchive/applicantdemowp/_default-applicantdemowp-1464836124.tar.gz
+git clone https://github.com/newmediadenver/applicantdemowp.git /var/www/applicantdemowp/current > /dev/null 2>&1
+curl -so /var/archives/archive.tar.gz https://s3-us-west-2.amazonaws.com/nmdarchive/applicantdemowp/_default-applicantdemowp-1464836124.tar.gz
 tar -xzf /var/archives/archive.tar.gz -C /var/archives/demo
-mysql -u doer -pdoer -e 'CREATE DATABASE demo'
-mysql -u doer -pdoer demo -e 'SOURCE /var/archives/demo/dac.sql'
+mysql -u doer -pdoer -e 'CREATE DATABASE demo' > /dev/null 2>&1
+mysql -u doer -pdoer demo -e 'SOURCE /var/archives/demo/dac.sql' > /dev/null 2>&1
 rm -rf /var/www/applicantdemowp/current/docroot/content/uploads
 mv /var/archives/demo/docroot/content/uploads /var/www/applicantdemowp/current/docroot/current/
 cp /var/www/applicantdemowp/current/demo.conf /etc/nginx/sites-enabled/demo.conf
 reload nginx
-echo "You are ready to start your task! You can see the site at http://localhost:1025"
+echo "The development environment is ready! You can now access the website in your browser at http://localhost:1025"
+echo "The website codebase is in the folder 'applicantdemowp'"

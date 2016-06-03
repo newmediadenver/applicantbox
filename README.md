@@ -1,38 +1,58 @@
-# devbox
-Vagrantfile and wrapper script to facilitate local development
+# Wordpress Site Builder Applicant 
+This repository provides a development environment for Wordpress Site Builders to complete example development tasks.
+
+## Requirements
+You will need to install the following programs onto your computer:
+* [Virtualbox](https://www.virtualbox.org/wiki/Downloads)
+* [Vagrant](https://www.vagrantup.com/downloads.html)
+
 ## Usage
-### Spin up the box
+Once you have installed Virtualbox and Vagrant, clone this repository to your computer. Then, in your terminal, run the following command from the location you cloned the repository:
+
 ```
 vagrant up
 ```
-### Execute a build action for a site
+
+You should see some output like this:
+
 ```
-./dev [ACTION] [SITE]
+Bringing machine 'default' up with 'virtualbox' provider...
+==> default: Importing base box 'drud/applicantbox'...
+==> default: Matching MAC address for NAT networking...
+==> default: Checking if box 'drud/applicantbox' is up to date...
+==> default: Setting the name of the VM: applicantbox_default_1464983823828_76115
+==> default: Clearing any previously set network interfaces...
+==> default: Preparing network interfaces based on configuration...
+    default: Adapter 1: nat
+==> default: Forwarding ports...
+    default: 80 (guest) => 1025 (host) (adapter 1)
+    default: 22 (guest) => 2222 (host) (adapter 1)
+==> default: Running 'pre-boot' VM customizations...
+==> default: Booting VM...
+==> default: Waiting for machine to boot. This may take a few minutes...
+    default: SSH address: 127.0.0.1:2222
+    default: SSH username: vagrant
+    default: SSH auth method: private key
+    default:
+    default: Vagrant insecure key detected. Vagrant will automatically replace
+    default: this with a newly generated keypair for better security.
+    default:
+    default: Inserting generated public key within guest...
+    default: Removing insecure key from the guest if it's present...
+    default: Key inserted! Disconnecting and reconnecting using new SSH key...
+==> default: Machine booted and ready!
+==> default: Checking for guest additions in VM...
+==> default: Mounting shared folders...
+    default: /var/www => /Users/tannerjfco/devops/applicantbox
+==> default: Running provisioner: shell...
+    default: Running: /var/folders/n4/40fxh9_563qgh2z7qmtw2rg00000gn/T/vagrant-shell20160603-13990-116pyvl
+==> default: stdin: is not a tty
+==> default: Starting up the development environment...
+==> default: # github.com SSH-2.0-libssh-0.7.0
+==> default: # github.com SSH-2.0-libssh-0.7.0
+==> default: no hostkey alg
+==> default: The development environment is ready! You can now access the website in your browser at http://localhost:1025
+==> default: The website codebase is in the folder 'applicantdemowp'
 ```
-### Available Actions:
 
-* create - provision a site from scratch onto the VM
-* update - run an update deployment on the VM
-* backup - create a backup archive and upload to S3
-* delete - delete the site from the VM
-* switch - set the site as the active site for nginx to serve. useful for running multiple sites on the same VM
-* list   - list site currently on the VM, does not require [SITE] to run
-
-Example:
-```
-./dev create qxnews
-```
-
-### Move project files between Host and VM
-By default assumes site is cloned to directory ~/sites/sitename. This can be modified in the syncto/syncfrom scripts.
-```./syncto [SITE]``` - update files from ~/sites/sitename on the Host to /var/www/sitename on the VM
-```./syncfrom [SITE]``` - update files from /var/www/sitename on the VM to ~/sites/sitename on the Host.
-
-### Additional Vagrant Commands
-```vagrant ssh``` - log into the VM
-
-```vagrant suspend``` - suspend the VM
-
-```vagrant destroy``` - destroy the VM
-
-```vagrant box update``` - update the base box if a new one is available
+Once this has completed, you are ready to start your development tasks.
