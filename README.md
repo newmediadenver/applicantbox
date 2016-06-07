@@ -57,6 +57,14 @@ Bringing machine 'default' up with 'virtualbox' provider...
 
 Once this has completed, you are ready to start your development tasks.
 
+## Accessing the demo site
+You can now access the site at http://localhost:1025
+
+To log into the Wordpress Admin, go to http://localhost:1025/wp/wp-login.php and login with the following credentials:
+
+*Username:* nmd.admin
+*Password:* admin
+
 ## When your tasks are completed
 Once you are done with your tasks, run the following command:
 ```
