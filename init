@@ -9,7 +9,7 @@ tar -xzf /var/archives/archive.tar.gz -C /var/archives/demo
 mysql -u doer -pdoer -e 'CREATE DATABASE demo' > /dev/null 2>&1
 mysql -u doer -pdoer demo -e 'SOURCE /var/archives/demo/applicantdemowp.sql' > /dev/null 2>&1
 rm -rf /var/www/applicantdemowp/current/docroot/content/uploads
-mv /var/archives/demo/docroot/content/uploads /var/www/applicantdemowp/current/docroot/current/
+mv /var/archives/demo/docroot/content/uploads /var/www/applicantdemowp/current/docroot/content/
 chown -R nginx:nginx /var/archives/demo/docroot/content/uploads
 cp /var/www/applicantdemowp/current/demo.conf /etc/nginx/sites-enabled/demo.conf
 reload nginx
